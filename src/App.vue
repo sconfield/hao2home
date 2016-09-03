@@ -2,7 +2,8 @@
   <div class="wall">
     <tile-paper v-for="(index, tile) in tileList"
       v-bind:paper="tile"
-      v-bind:idx="index"></tile-paper>
+      v-bind:idx="index"
+      v-bind:wallWidth="wallWidth"></tile-paper>
   </div>
 </template>
 
@@ -14,6 +15,11 @@ export default {
   data: function(){
     return {
       tileList: tileData
+    }
+  },
+  computed: {
+    wallWidth: function(){
+      return screen.availWidth;
     }
   },
   components: {

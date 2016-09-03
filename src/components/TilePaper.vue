@@ -34,7 +34,8 @@ export default {
   },
   props: {
     paper: Object,
-    idx: Number
+    idx: Number,
+    wallwidth: Number
   },
   methods: {
     turnPaper: function(){
@@ -48,23 +49,23 @@ export default {
 
     this.putWhere['-webkit-transform'] = 'rotate(' + Math.random()*360 + 'deg)';
 
-    var _x = 0, _y = 0;
+    var _half = this.wallwidth / 2;
     switch (this.idx%4) {
       case 0:
-        this.putWhere.left = (50 * Math.random() - 13) + '%';
-        this.putWhere.top = (50 * Math.random() - 13) + '%';
+        this.putWhere.left = 50 * Math.random() + '%';
+        this.putWhere.top = 50 * Math.random() + '%';
         break;
       case 1:
-        this.putWhere.left = 50 * Math.random() + 36 + '%';
-        this.putWhere.top = (50 * Math.random() - 13) + '%';
+        this.putWhere.left = 50 * Math.random() + 50 + '%';
+        this.putWhere.top = 50 * Math.random() + '%';
         break;
       case 2:
-        this.putWhere.left = (50 * Math.random() - 13) + '%';
-        this.putWhere.top = 50 * Math.random() + 36 + '%';
+        this.putWhere.left = _half * Math.random()-400 + 'px';
+        this.putWhere.top = 50 * Math.random() + 50 + '%';
         break;
       case 3:
-        this.putWhere.left = 50 * Math.random() + 36 + '%';
-        this.putWhere.top = 50 * Math.random() + 36 + '%';
+        this.putWhere.left = _half * (Math.random()+1) + 400 + 'px';
+        this.putWhere.top = 50 * Math.random() + 50 + '%';
         break;
       default:
         console.log('vivijin');
