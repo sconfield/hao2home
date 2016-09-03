@@ -1,0 +1,39 @@
+<template>
+  <div class="wall">
+    <tile-paper v-for="(index, tile) in tileList"
+      v-bind:paper="tile"
+      v-bind:idx="index"></tile-paper>
+  </div>
+</template>
+
+<script>
+import TilePaper from './components/TilePaper'
+import tileData from './data/Tile'
+
+export default {
+  data: function(){
+    return {
+      tileList: tileData
+    }
+  },
+  components: {
+    TilePaper
+  }
+}
+</script>
+
+<style>
+.wall {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.nav-bar {
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  z-index: 101;
+  width: 100%;
+  text-align: center;
+}
+</style>
