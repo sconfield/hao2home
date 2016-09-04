@@ -4,11 +4,13 @@
       v-bind:paper="tile"
       v-bind:idx="index"
       v-bind:wallWidth="wallWidth"></tile-paper>
+    <tile-nav v-bind:navbar="tileList"></tile-nav>
   </div>
 </template>
 
 <script>
 import TilePaper from './components/TilePaper'
+import TileNav from './components/TileNav'
 import tileData from './data/Tile'
 
 export default {
@@ -23,7 +25,8 @@ export default {
     }
   },
   components: {
-    TilePaper
+    TilePaper,
+    TileNav
   }
 }
 </script>

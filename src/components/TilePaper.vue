@@ -1,7 +1,7 @@
 <template>
   <div class="paper"
     v-bind:class="{'paper-center': paper.center, 'stage-front': paper.front, 'stage-back': !paper.front}"
-    v-bind:style="putWhere">
+    v-bind:style="paper.putWhere">
     <div class="stage-box"
       v-on:click="turnPaper">
       <div class="stage paper-front">
@@ -23,15 +23,6 @@
 
 <script>
 export default {
-  data: function(){
-    return {
-      putWhere: {
-        top: '50%',
-        left: '50%',
-        '-webkit-transform': 'rotate(0deg)'
-      }
-    }
-  },
   props: {
     paper: Object,
     idx: Number,
@@ -42,30 +33,35 @@ export default {
       this.paper.front = !this.paper.front;
     }
   },
-  ready: function(){
+  created: function(){
     if (this.paper.center) {
+      this.paper.putWhere = {
+        top: '50%',
+        left: '50%',
+        '-webkit-transform': 'rotate(0deg)'
+      };
       return;
     }
 
-    this.putWhere['-webkit-transform'] = 'rotate(' + Math.random()*360 + 'deg)';
+    this.paper.putWhere['-webkit-transform'] = 'rotate(' + Math.random()*360 + 'deg)';
 
     var _half = this.wallwidth / 2;
     switch (this.idx%4) {
       case 0:
-        this.putWhere.left = 50 * Math.random() + '%';
-        this.putWhere.top = 50 * Math.random() + '%';
+        this.paper.putWhere.left = 50 * Math.random() + '%';
+        this.paper.putWhere.top = 50 * Math.random() + '%';
         break;
       case 1:
-        this.putWhere.left = 50 * Math.random() + 50 + '%';
-        this.putWhere.top = 50 * Math.random() + '%';
+        this.paper.putWhere.left = 50 * Math.random() + 50 + '%';
+        this.paper.putWhere.top = 50 * Math.random() + '%';
         break;
       case 2:
-        this.putWhere.left = _half * Math.random()-400 + 'px';
-        this.putWhere.top = 50 * Math.random() + 50 + '%';
+        this.paper.putWhere.left = _half * Math.random()-400 + 'px';
+        this.paper.putWhere.top = 50 * Math.random() + 50 + '%';
         break;
       case 3:
-        this.putWhere.left = _half * (Math.random()+1) + 400 + 'px';
-        this.putWhere.top = 50 * Math.random() + 50 + '%';
+        this.paper.putWhere.left = _half * (Math.random()+1) + 400 + 'px';
+        this.paper.putWhere.top = 50 * Math.random() + 50 + '%';
         break;
       default:
         console.log('vivijin');
@@ -123,6 +119,9 @@ export default {
   margin-left: -260px;
   margin-top: -400px;
   */
+  top: 50%;
+  left: 50%;
+  -webkit-transform: rotate(0deg);
   z-index: 999;
 }
 .stage-box {
