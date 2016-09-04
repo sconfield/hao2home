@@ -37,7 +37,7 @@ export default {
   height: 30px;
   display: inline-block;
   cursor: pointer;
-  background-color: silver;
+  background-color: #90a4ae;
   text-align: center;
   border-radius: 50%;
   -webkit-transform: scale(.52);
@@ -45,6 +45,7 @@ export default {
 .nav-bar span:hover {
   -webkit-transform: scale(.88);
   -webkit-transition: all .5s;
+  background-color: #64b5f6;
 }
 .nav-bar .current {
   background-color: #42a5f5;

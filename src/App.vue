@@ -10,7 +10,7 @@
     <div class="row tile-filter">
       <div class="input-field col s2 offset-s10">
         <input id="nameFilter" type="text" v-model="tileName">
-        <label class="active" for="nameFilter">search name</label>
+        <label class="active" for="nameFilter">搜索编号</label>
       </div>
     </div>
   </div>
@@ -62,5 +62,6 @@ export default {
   position: absolute;
   z-index: 999;
   width: 100%;
+  top: 0;
 }
 </style>

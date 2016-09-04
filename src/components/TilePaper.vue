@@ -72,6 +72,7 @@ export default {
   z-index: 999;
 }
 .stage-box {
+  cursor: pointer;
   position: absolute;
   width: 100%;
   height: 100%;
