@@ -52,15 +52,6 @@ export function putAnyWhere(paper, wall, idx){
   paper.putWhere.top = _any_y - 200 + 'px';
 }
 
-export function putAll(paperList, wall){
-  for (var i = 0; i < paperList.length; i++) {
-    var paper = paperList[i];
-    if (!paper.center) {
-      putAnyWhere(paper, wall, i);
-    }
-  }
-}
-
 export function getCenterAddr(wall){
   return {
     top: wall.height/2-200+'px',

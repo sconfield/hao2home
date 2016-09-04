@@ -1,12 +1,18 @@
 <template>
   <div class="wall blue lighten-3">
-    <tile-paper v-for="(index, tile) in tileList"
+    <tile-paper v-for="(index, tile) in tileList | filterBy tileName in 'name'"
       v-bind:paper="tile"
       v-bind:idx="index"
       v-bind:wall="wall"
       v-on:click="putCenter(tile)"></tile-paper>
     <tile-nav v-bind:navbar="tileList"
       v-bind:wall="wall"></tile-nav>
+    <div class="row tile-filter">
+      <div class="input-field col s2 offset-s10">
+        <input id="nameFilter" type="text" v-model="tileName">
+        <label class="active" for="nameFilter">search name</label>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -14,17 +20,21 @@
 import TilePaper from './components/TilePaper'
 import TileNav from './components/TileNav'
 import tileData from './data/Tile'
-import {putCurrentPaperCenter, putAll} from './tools/PaperTools'
+import {putCurrentPaperCenter} from './tools/PaperTools'
 
 export default {
   data: function(){
     return {
-      tileList: tileData.slice(0, 10)
+      tileList: tileData,
+      tileName: ''
     };
   },
   methods: {
     putCenter: function(tile){
       putCurrentPaperCenter(tile, this.tileList, this.wall);
+    },
+    nameFilter: function(){
+
     }
   },
   computed: {
@@ -34,12 +44,6 @@ export default {
         height: document.body.clientHeight
       };
     }
-  },
-  ready: function(){
-    var self = this;
-    setTimeout(function(){
-      putAll(self.tileList, self.wall);
-    }, 800);
   },
   components: {
     TilePaper,
@@ -53,5 +57,10 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+.tile-filter {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
 }
 </style>

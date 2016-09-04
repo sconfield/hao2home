@@ -26,7 +26,7 @@ export default {
 <style lang="css" scoped>
 .nav-bar {
   position: absolute;
-  bottom: 30px;
+  bottom: 36px;
   z-index: 999;
   width: 40%;
   left: 30%;

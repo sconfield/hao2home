@@ -38,6 +38,12 @@ export default {
   },
   created: function(){
     this.paper.putWhere = getCenterAddr(this.wall);
+  },
+  ready: function(){
+    var self = this;
+    setTimeout(function(){
+      putAnyWhere(self.paper, self.wall, self.idx);
+    }, 800);
   }
 }
 </script>
