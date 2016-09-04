@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import {putAnyWhere} from '../tools/PaperTools'
+
 export default {
   props: {
     paper: Object,
@@ -44,29 +46,7 @@ export default {
       return;
     }
 
-    this.paper.putWhere['-webkit-transform'] = 'rotate(' + Math.random()*360 + 'deg)';
-
-    var _half = this.wallwidth / 2;
-    switch (this.idx%4) {
-      case 0:
-        this.paper.putWhere.left = 50 * Math.random() + '%';
-        this.paper.putWhere.top = 50 * Math.random() + '%';
-        break;
-      case 1:
-        this.paper.putWhere.left = 50 * Math.random() + 50 + '%';
-        this.paper.putWhere.top = 50 * Math.random() + '%';
-        break;
-      case 2:
-        this.paper.putWhere.left = _half * Math.random()-400 + 'px';
-        this.paper.putWhere.top = 50 * Math.random() + 50 + '%';
-        break;
-      case 3:
-        this.paper.putWhere.left = _half * (Math.random()+1) + 400 + 'px';
-        this.paper.putWhere.top = 50 * Math.random() + 50 + '%';
-        break;
-      default:
-        console.log('vivijin');
-    }
+    putAnyWhere(this.paper, this.wallwidth, this.idx);
   }
 }
 </script>
