@@ -15,11 +15,11 @@ export default {
   data: function(){
     return {
       tileList: tileData
-    }
+    };
   },
   computed: {
     wallWidth: function(){
-      return screen.availWidth;
+      return document.body.clientWidth;
     }
   },
   components: {
@@ -33,13 +33,5 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
-.nav-bar {
-  position: absolute;
-  left: 0;
-  bottom: 30px;
-  z-index: 101;
-  width: 100%;
-  text-align: center;
 }
 </style>
