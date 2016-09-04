@@ -5,7 +5,7 @@
       v-bind:idx="index"
       v-bind:wall="wall"
       v-on:click="putCenter(tile)"></tile-paper>
-    <tile-nav v-bind:navbar="tileList"
+    <tile-nav v-bind:navbar="tileList | filterBy tileName in 'name'"
       v-bind:wall="wall"></tile-nav>
     <div class="row tile-filter">
       <div class="input-field col s2 offset-s10">
