@@ -1,12 +1,12 @@
 <template>
-  <div class="wall">
+  <div class="wall blue lighten-3">
     <tile-paper v-for="(index, tile) in tileList"
       v-bind:paper="tile"
       v-bind:idx="index"
-      v-bind:wallWidth="wallWidth"
-      v-on:click="putCenter(tile)"
-      ></tile-paper>
-    <tile-nav v-bind:navbar="tileList"></tile-nav>
+      v-bind:wall="wall"
+      v-on:click="putCenter(tile)"></tile-paper>
+    <tile-nav v-bind:navbar="tileList"
+      v-bind:wall="wall"></tile-nav>
   </div>
 </template>
 
@@ -19,17 +19,20 @@ import {putCurrentPaperCenter} from './tools/PaperTools'
 export default {
   data: function(){
     return {
-      tileList: tileData
+      tileList: tileData.slice(0, 10)
     };
   },
   methods: {
     putCenter: function(tile){
-      putCurrentPaperCenter(tile, this.tileList);
+      putCurrentPaperCenter(tile, this.tileList, this.wall);
     }
   },
   computed: {
-    wallWidth: function(){
-      return document.body.clientWidth;
+    wall: function(){
+      return {
+        width: document.body.clientWidth,
+        height: document.body.clientHeight
+      };
     }
   },
   components: {

@@ -2,17 +2,17 @@
   <div class="paper"
     v-bind:class="{'paper-center': paper.center, 'stage-front': paper.front, 'stage-back': !paper.front}"
     v-bind:style="paper.putWhere">
-    <div class="stage-box" v-on:click="turnPaper">
-      <div class="stage paper-front">
-        <p class="image">
+    <div class="stage-box z-depth-3" v-on:click="turnPaper">
+      <div class="stage paper-front light-blue lighten-5">
+        <p>
           <img v-bind:src="paper.path" alt="{{paper.name}}" />
         </p>
-        <p class="title">
+        <p class="center-align flow-text">
           {{paper.title}}
         </p>
       </div>
-      <div class="stage paper-back">
-        <p class="desc">
+      <div class="stage paper-back blue-grey lighten-4">
+        <p class="">
           {{paper.desc}}
         </p>
       </div>
@@ -21,13 +21,13 @@
 </template>
 
 <script>
-import {putAnyWhere} from '../tools/PaperTools'
+import {putAnyWhere, getCenterAddr} from '../tools/PaperTools'
 
 export default {
   props: {
     paper: Object,
     idx: Number,
-    wallwidth: Number
+    wall: Object
   },
   methods: {
     turnPaper: function(){
@@ -38,15 +38,11 @@ export default {
   },
   created: function(){
     if (this.paper.center) {
-      this.paper.putWhere = {
-        top: '50%',
-        left: '50%',
-        '-webkit-transform': 'rotate(0deg)'
-      };
+      this.paper.putWhere = getCenterAddr(this.wall);
       return;
     }
 
-    putAnyWhere(this.paper, this.wallwidth, this.idx);
+    putAnyWhere(this.paper, this.wall, this.idx);
   }
 }
 </script>
@@ -56,53 +52,21 @@ export default {
 .paper {
   width: 260px;
   height: 400px;
-  margin-left: -130px;
-  margin-top: -200px;
   position: absolute;
   z-index: 1;
-  box-shadow: 0 0 1px rgba(0, 0, 0, .01);
   -webkit-perspective: 800px;
   -webkit-transition: all .8s;
 }
 .paper .stage {
   width: 100%;
   height: 100%;
-  position: absolute;
-  background-color: #eee;
-  top: 0;
-  right: 0;
   padding: 20px;
-  box-sizing: border-box;
+  position: absolute;
 }
-.paper .paper-front .image {
+.paper .paper-front img {
   width: 100%;
-  height: 100%;
-  line-height: 250px;
-  overflow: hidden;
-}
-.paper .paper-front .image img {
-  width: 100%;
-}
-.paper .paper-front .title {
-  text-align: center;
-  font-size: 16px;
-  line-height: 50px;
-  margin-top: -70px;
-}
-.paper .paper-back .desc {
-  color: #666;
-  font-size: 14px;
-  line-height: 1.5em;
 }
 .paper-center {
-  /*
-  width: 520px;
-  height: 800px;
-  margin-left: -260px;
-  margin-top: -400px;
-  */
-  top: 50%;
-  left: 50%;
   -webkit-transform: rotate(0deg);
   z-index: 999;
 }

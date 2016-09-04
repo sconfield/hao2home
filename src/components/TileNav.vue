@@ -12,11 +12,12 @@ import {putCurrentPaperCenter} from '../tools/PaperTools'
 
 export default {
   props: {
-    navbar: Array
+    navbar: Array,
+    wall: Object
   },
   methods: {
     putCenter: function(btn){
-      putCurrentPaperCenter(btn, this.navbar);
+      putCurrentPaperCenter(btn, this.navbar, this.wall);
     }
   }
 };
@@ -25,7 +26,7 @@ export default {
 <style lang="css" scoped>
 .nav-bar {
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   z-index: 999;
   width: 40%;
   left: 30%;

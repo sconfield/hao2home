@@ -1,6 +1,6 @@
 var _idx = 0;
 
-export function putCurrentPaperCenter(paper, paperList){
+export function putCurrentPaperCenter(paper, paperList, wall){
   var beforePaper = {};
   // clear center
   for (var i = 0; i < paperList.length; i++) {
@@ -12,39 +12,50 @@ export function putCurrentPaperCenter(paper, paperList){
   }
   // set center and putWhere
   paper.center = true;
-  paper.putWhere = {};
+  paper.putWhere = getCenterAddr(wall);
   // set before paper putWhere
   if (paper !== beforePaper) {
-    beforePaper.putWhere = {
-      top: 100 * Math.random() + '%',
-      left: 100 * Math.random() + '%',
-      '-webkit-transform': 'rotate(' + Math.random()*360 + 'deg)'
-    }
+    putAnyWhere(beforePaper, wall, _idx++);
   }
 }
 
-export function putAnyWhere(paper, wallwidth, idx){
+export function putAnyWhere(paper, wall, idx){
   paper.putWhere['-webkit-transform'] = 'rotate(' + Math.random()*360 + 'deg)';
 
-  var _half = wallwidth / 2;
+  var _half_x = wall.width / 2;
+  var _half_y = wall.height / 2;
+  var _any = Math.random();
+  console.log(_any);
+  var _any_x, _any_y;
   switch (idx%4) {
     case 0:
-      paper.putWhere.left = 50 * Math.random() + '%';
-      paper.putWhere.top = 50 * Math.random() + '%';
+      _any_x = _half_x * _any;
+      _any_y = _half_y * _any;
       break;
     case 1:
-      paper.putWhere.left = 50 * Math.random() + 50 + '%';
-      paper.putWhere.top = 50 * Math.random() + '%';
+      _any_x = _half_x * (_any+1);
+      _any_y = _half_y * _any;
       break;
     case 2:
-      paper.putWhere.left = _half * Math.random()-400 + 'px';
-      paper.putWhere.top = 50 * Math.random() + 50 + '%';
+      _any_x = _half_x/2 * _any;
+      _any_y = _half_y * (_any+1);
       break;
     case 3:
-      paper.putWhere.left = _half * (Math.random()+1) + 400 + 'px';
-      paper.putWhere.top = 50 * Math.random() + 50 + '%';
+      _any_x = _half_x/2 * _any + 1.5*_half_x;
+      _any_y = _half_y * (_any+1);
       break;
     default:
       console.log('vivijin');
   }
+
+  paper.putWhere.left = _any_x - 130 + 'px';
+  paper.putWhere.top = _any_y - 200 + 'px';
+}
+
+export function getCenterAddr(wall){
+  return {
+    top: wall.height/2-200+'px',
+    left: wall.width/2-130+'px',
+    '-webkit-transform': 'rotate(0deg)'
+  };
 }
