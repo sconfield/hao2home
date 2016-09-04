@@ -37,12 +37,7 @@ export default {
     }
   },
   created: function(){
-    if (this.paper.center) {
-      this.paper.putWhere = getCenterAddr(this.wall);
-      return;
-    }
-
-    putAnyWhere(this.paper, this.wall, this.idx);
+    this.paper.putWhere = getCenterAddr(this.wall);
   }
 }
 </script>

@@ -14,7 +14,7 @@
 import TilePaper from './components/TilePaper'
 import TileNav from './components/TileNav'
 import tileData from './data/Tile'
-import {putCurrentPaperCenter} from './tools/PaperTools'
+import {putCurrentPaperCenter, putAll} from './tools/PaperTools'
 
 export default {
   data: function(){
@@ -34,6 +34,12 @@ export default {
         height: document.body.clientHeight
       };
     }
+  },
+  ready: function(){
+    var self = this;
+    setTimeout(function(){
+      putAll(self.tileList, self.wall);
+    }, 800);
   },
   components: {
     TilePaper,

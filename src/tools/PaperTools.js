@@ -1,7 +1,7 @@
 var _idx = 0;
 
 export function putCurrentPaperCenter(paper, paperList, wall){
-  var beforePaper = {};
+  var beforePaper = false;
   // clear center
   for (var i = 0; i < paperList.length; i++) {
     var item = paperList[i];
@@ -14,18 +14,18 @@ export function putCurrentPaperCenter(paper, paperList, wall){
   paper.center = true;
   paper.putWhere = getCenterAddr(wall);
   // set before paper putWhere
-  if (paper !== beforePaper) {
+  if (paper !== beforePaper && beforePaper) {
     putAnyWhere(beforePaper, wall, _idx++);
   }
 }
 
 export function putAnyWhere(paper, wall, idx){
+
   paper.putWhere['-webkit-transform'] = 'rotate(' + Math.random()*360 + 'deg)';
 
   var _half_x = wall.width / 2;
   var _half_y = wall.height / 2;
   var _any = Math.random();
-  console.log(_any);
   var _any_x, _any_y;
   switch (idx%4) {
     case 0:
@@ -50,6 +50,15 @@ export function putAnyWhere(paper, wall, idx){
 
   paper.putWhere.left = _any_x - 130 + 'px';
   paper.putWhere.top = _any_y - 200 + 'px';
+}
+
+export function putAll(paperList, wall){
+  for (var i = 0; i < paperList.length; i++) {
+    var paper = paperList[i];
+    if (!paper.center) {
+      putAnyWhere(paper, wall, i);
+    }
+  }
 }
 
 export function getCenterAddr(wall){
