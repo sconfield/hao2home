@@ -2,8 +2,7 @@
   <div class="paper"
     v-bind:class="{'paper-center': paper.center, 'stage-front': paper.front, 'stage-back': !paper.front}"
     v-bind:style="paper.putWhere">
-    <div class="stage-box"
-      v-on:click="turnPaper">
+    <div class="stage-box" v-on:click="turnPaper">
       <div class="stage paper-front">
         <p class="image">
           <img v-bind:src="paper.path" alt="{{paper.name}}" />
@@ -30,7 +29,9 @@ export default {
   },
   methods: {
     turnPaper: function(){
-      this.paper.front = !this.paper.front;
+      if (this.paper.center) {
+        this.paper.front = !this.paper.front;
+      }
     }
   },
   created: function(){
@@ -81,6 +82,7 @@ export default {
   z-index: 1;
   box-shadow: 0 0 1px rgba(0, 0, 0, .01);
   -webkit-perspective: 800px;
+  -webkit-transition: all .8s;
 }
 .paper .stage {
   width: 100%;

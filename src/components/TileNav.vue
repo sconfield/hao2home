@@ -1,39 +1,22 @@
 <template lang="html">
   <div class="nav-bar">
     <span v-for="btn in navbar"
-          v-on:click="turnCurrentPaper(btn)"
+          v-on:click="putCenter(btn)"
           v-bind:class="{'current': btn.center}"
           title="{{btn.name}}">&nbsp;</span>
   </div>
 </template>
 
 <script>
+import {putCurrentPaperCenter} from '../tools/PaperTools'
+
 export default {
   props: {
     navbar: Array
   },
   methods: {
-    turnCurrentPaper: function(paper){
-      var beforePaper = {};
-      // clear center
-      for (var i = 0; i < this.navbar.length; i++) {
-        var item = this.navbar[i];
-        if (item.center) {
-          beforePaper = item;
-        }
-        item.center = false;
-      }
-      // set center and putWhere
-      paper.center = true;
-      paper.putWhere = {};
-      // set before paper putWhere
-      if (paper !== beforePaper) {
-        beforePaper.putWhere = {
-          top: 100 * Math.random() + '%',
-          left: 100 * Math.random() + '%',
-          '-webkit-transform': 'rotate(' + Math.random()*360 + 'deg)'
-        }
-      }
+    putCenter: function(btn){
+      putCurrentPaperCenter(btn, this.navbar);
     }
   }
 };
@@ -43,7 +26,7 @@ export default {
 .nav-bar {
   position: absolute;
   bottom: 0;
-  z-index: 101;
+  z-index: 999;
   width: 40%;
   left: 30%;
   text-align: center;
@@ -60,6 +43,7 @@ export default {
 }
 .nav-bar span:hover {
   -webkit-transform: scale(.88);
+  -webkit-transition: all .5s;
 }
 .nav-bar .current {
   background-color: #42a5f5;
