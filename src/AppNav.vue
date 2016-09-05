@@ -4,11 +4,12 @@
       <a href="#!" class="brand-logo center">www.hao2home.com</a>
       <ul class="left hide-on-med-and-down">
         <li class="active"><a v-link="{path: '/'}">首页</a></li>
-        <li><a v-link="{path: '/acd'}">AutoCAD</a></li>
+        <li><a v-link="{path: '/cad'}">AutoCAD</a></li>
         <li><a v-link="{path: '/wall'}">瓷砖墙</a></li>
       </ul>
     </div>
   </nav>
+  <router-view></router-view>
 </template>
 
 <script>
