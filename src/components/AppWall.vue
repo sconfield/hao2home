@@ -1,5 +1,4 @@
 <template>
-  <app-nav></app-nav>
   <div class="wall blue lighten-3">
     <tile-paper v-for="(index, tile) in tileList | filterBy tileName in 'name'"
       v-bind:paper="tile"
@@ -18,11 +17,10 @@
 </template>
 
 <script>
-import TilePaper from './components/TilePaper'
-import TileNav from './components/TileNav'
-import AppNav from './components/AppNav'
-import tileData from './data/Tile'
-import {putCurrentPaperCenter} from './tools/PaperTools'
+import TilePaper from './TilePaper'
+import TileNav from './TileNav'
+import tileData from '../data/Tile'
+import {putCurrentPaperCenter} from '../tools/PaperTools'
 
 export default {
   data: function(){
@@ -49,8 +47,7 @@ export default {
   },
   components: {
     TilePaper,
-    TileNav,
-    AppNav
+    TileNav
   }
 }
 </script>
@@ -68,7 +65,7 @@ html, body {
 }
 .tile-filter {
   position: absolute;
-  z-index: 999;
+  z-index: 997;
   width: 100%;
   top: 0;
 }
