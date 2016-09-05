@@ -1,6 +1,6 @@
 <template>
+  <app-nav></app-nav>
   <div class="wall blue lighten-3">
-    <app-nav></app-nav>
     <tile-paper v-for="(index, tile) in tileList | filterBy tileName in 'name'"
       v-bind:paper="tile"
       v-bind:idx="index"
