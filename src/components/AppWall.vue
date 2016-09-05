@@ -1,0 +1,74 @@
+<template>
+  <div class="wall blue lighten-3">
+    <tile-paper v-for="(index, tile) in tileList | filterBy tileName in 'name'"
+      v-bind:paper="tile"
+      v-bind:idx="index"
+      v-bind:wall="wall"
+      v-on:click="putCenter(tile)"></tile-paper>
+    <tile-nav v-bind:navbar="tileList | filterBy tileName in 'name'"
+      v-bind:wall="wall"></tile-nav>
+    <div class="row tile-filter">
+      <div class="input-field col s2 offset-s10">
+        <input id="nameFilter" type="text" v-model="tileName">
+        <label class="active" for="nameFilter">搜索编号</label>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import TilePaper from './TilePaper'
+import TileNav from './TileNav'
+import AppNav from './AppNav'
+import tileData from '../data/Tile'
+import {putCurrentPaperCenter} from '../tools/PaperTools'
+
+export default {
+  data: function(){
+    return {
+      tileList: tileData.slice(0, 6),
+      tileName: ''
+    };
+  },
+  methods: {
+    putCenter: function(tile){
+      putCurrentPaperCenter(tile, this.tileList, this.wall);
+    },
+    nameFilter: function(){
+
+    }
+  },
+  computed: {
+    wall: function(){
+      return {
+        width: document.body.clientWidth,
+        height: document.body.clientHeight
+      };
+    }
+  },
+  components: {
+    TilePaper,
+    TileNav,
+    AppNav
+  }
+}
+</script>
+
+<style>
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.wall {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.tile-filter {
+  position: absolute;
+  z-index: 997;
+  width: 100%;
+  top: 0;
+}
+</style>
