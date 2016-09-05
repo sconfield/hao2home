@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+<<<<<<< HEAD
 import AppNav from './AppNav'
+=======
+import AppNav from './components/AppNav'
+>>>>>>> origin/master
 import AppWall from './components/AppWall'
 
 /* eslint-disable no-new */
