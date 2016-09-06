@@ -2,7 +2,7 @@
   <div class="paper"
     v-bind:class="{'paper-center': paper.center, 'stage-front': paper.front, 'stage-back': !paper.front}"
     v-bind:style="paper.putWhere">
-    <div class="stage-box z-depth-3" v-on:click="turnPaper">
+    <div class="stage-box z-depth-2" v-on:click="turnPaper">
       <div class="stage paper-front light-blue lighten-5">
         <p>
           <img v-bind:src="paper.path" alt="{{paper.name}}" />

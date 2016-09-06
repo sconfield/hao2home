@@ -12,6 +12,10 @@ var cad = Vue.extend({
   template: '<h1>AutoCAD</h1>'
 });
 
+var about = Vue.extend({
+  template: '<h1>about us</h1>'
+});
+
 Vue.use(VueRouter);
 var router = new VueRouter({
   history: false,
@@ -26,6 +30,9 @@ router.map({
   },
   '/wall': {
     component: AppWall
+  },
+  '/about': {
+    component: about
   }
 });
 
