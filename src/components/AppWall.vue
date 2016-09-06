@@ -7,8 +7,8 @@
       v-on:click="putCenter(tile)"></tile-paper>
     <tile-nav v-bind:navbar="tileList | filterBy tileName in 'name'"
       v-bind:wall="wall"></tile-nav>
-    <div class="row tile-filter">
-      <div class="input-field col s2 offset-s10">
+    <div class="tile-filter">
+      <div class="input-field">
         <input id="nameFilter" type="text" v-model="tileName">
         <label class="active" for="nameFilter">搜索编号</label>
       </div>
@@ -32,9 +32,6 @@ export default {
   methods: {
     putCenter: function(tile){
       putCurrentPaperCenter(tile, this.tileList, this.wall);
-    },
-    nameFilter: function(){
-
     }
   },
   computed: {
@@ -65,8 +62,8 @@ html, body {
 }
 .tile-filter {
   position: absolute;
-  z-index: 997;
-  width: 100%;
+  z-index: 999;
   top: 0;
+  right: 0;
 }
 </style>

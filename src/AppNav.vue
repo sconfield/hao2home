@@ -18,7 +18,7 @@
 
 <style lang="css" scoped>
 .nav-wrapper {
-  z-index: 998;
+  z-index: 999;
   background-color: #27546F;
 }
 .top-nav {
