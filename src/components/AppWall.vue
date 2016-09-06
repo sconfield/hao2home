@@ -10,7 +10,7 @@
     <div class="tile-filter">
       <div class="input-field">
         <input id="nameFilter" type="text" v-model="tileName">
-        <label class="active" for="nameFilter">搜索编号</label>
+        <label for="nameFilter">搜索编号</label>
       </div>
     </div>
   </div>
@@ -65,5 +65,14 @@ html, body {
   z-index: 999;
   top: 0;
   right: 0;
+}
+.tile-filter label {
+  color: white;
+}
+.tile-filter input:focus:not([readonly])+label {
+  color: white;
+}
+.tile-filter input:focus:not([readonly]) {
+  border-bottom: 1px solid white;
 }
 </style>
