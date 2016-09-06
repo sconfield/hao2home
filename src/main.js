@@ -2,16 +2,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import AppNav from './AppNav'
 import AppWall from './components/AppWall'
+import AppHome from './components/AppHome'
+import AppIndex from './components/AppIndex' 
 
 /* eslint-disable no-new */
-var home = Vue.extend({
-   template: '<h1>welcome here!</h1>'
-});
-
-var cad = Vue.extend({
-  template: '<h1>AutoCAD</h1>'
-});
-
 var about = Vue.extend({
   template: '<h1>about us</h1>'
 });
@@ -23,10 +17,10 @@ var router = new VueRouter({
 });
 router.map({
   '/': {
-    component: home
+    component: AppIndex
   },
   'cad': {
-    component: cad
+    component: AppHome
   },
   '/wall': {
     component: AppWall
