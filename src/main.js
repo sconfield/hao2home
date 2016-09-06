@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import AppNav from './AppNav'
 import AppWall from './components/AppWall'
-import AppHome from './components/AppHome'
-import AppIndex from './components/AppIndex' 
+import AppHouse from './components/AppHouse'
+import AppIndex from './components/AppIndex'
 
 /* eslint-disable no-new */
 var about = Vue.extend({
@@ -20,7 +20,7 @@ router.map({
     component: AppIndex
   },
   'cad': {
-    component: AppHome
+    component: AppHouse
   },
   '/wall': {
     component: AppWall

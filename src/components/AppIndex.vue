@@ -15,9 +15,10 @@ export default {
 
 		function init() {
 
-			container = document.querySelector('.index')
+			container = document.querySelector('.index');
 			document.body.appendChild( container );
 
+      /*
 			var info = document.createElement( 'div' );
 			info.style.position = 'absolute';
 			info.style.top = '10px';
@@ -25,6 +26,7 @@ export default {
 			info.style.textAlign = 'center';
 			info.innerHTML = '<a href="http://threejs.org" target="_blank">three.js</a> - orthographic view';
 			container.appendChild( info );
+      */
 
 			camera = new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, - 500, 1000 );
 			camera.position.x = 200;
@@ -93,7 +95,7 @@ export default {
 			scene.add( directionalLight );
 
 			renderer = new THREE.CanvasRenderer();
-			renderer.setClearColor( 0xf0f0f0 );
+			renderer.setClearColor( 0x90CAF9 );
 			renderer.setPixelRatio( window.devicePixelRatio );
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			container.appendChild( renderer.domElement );
@@ -151,5 +153,6 @@ export default {
   .index {
     height: 100%;
     width: 100%;
+    margin-top: -64px;
   }
 </style>

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="home">
+  <div class="house">
   </div>
 </template>
 
@@ -16,8 +16,9 @@ export default {
     init();
     render();
     function init() {
-      container = document.querySelector('.home')
+      container = document.querySelector('.house');
       document.body.appendChild( container );
+      /*
       var info = document.createElement( 'div' );
       info.style.position = 'absolute';
       info.style.top = '10px';
@@ -25,6 +26,7 @@ export default {
       info.style.textAlign = 'center';
       info.innerHTML = '<a href="http://threejs.org" target="_blank">three.js</a> - voxel painter<br><strong>click</strong>: add voxel, <strong>shift + click</strong>: remove voxel, <a href="javascript:save()">save .png</a>';
       container.appendChild( info );
+      */
       camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
       camera.position.set( 500, 800, 1300 );
       camera.lookAt( new THREE.Vector3() );
@@ -66,7 +68,7 @@ export default {
       directionalLight.position.normalize();
       scene.add( directionalLight );
       renderer = new THREE.CanvasRenderer();
-      renderer.setClearColor( 0xf0f0f0 );
+      renderer.setClearColor( 0x90CAF9 );
       renderer.setPixelRatio( window.devicePixelRatio );
       renderer.setSize( window.innerWidth, window.innerHeight );
       container.appendChild(renderer.domElement);
@@ -128,8 +130,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  .home {
+  .house {
     height: 100%;
     width: 100%;
+    margin-top: -64px;
   }
 </style>
