@@ -1,7 +1,5 @@
 <template lang="html">
-  <div class="index">
-
-  </div>
+  <div class="index"></div>
 </template>
 
 <script>
@@ -30,7 +28,7 @@ export default {
 
 			camera = new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, - 500, 1000 );
 			camera.position.x = 200;
-			camera.position.y = 100;
+			camera.position.y = 50;
 			camera.position.z = 200;
 
 			scene = new THREE.Scene();

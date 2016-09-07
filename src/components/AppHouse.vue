@@ -1,6 +1,5 @@
 <template lang="html">
-  <div class="house">
-  </div>
+  <div class="house"></div>
 </template>
 
 <script>
