@@ -1,4 +1,6 @@
-# www.hao2home.com
+# my-vue-demo
+
+玩了materialize.css和three.js，主要学习了vue及vue-router实现spa，有空再玩玩vue-resource。现在迷恋meteor和autodesk的view and data api～
 
 > A Vue.js project
 
