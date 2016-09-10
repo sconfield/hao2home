@@ -57,6 +57,8 @@ export default {
   z-index: 1;
   -webkit-perspective: 800px;
   -webkit-transition: all .8s;
+  -moz-perspective: 800px;
+  -moz-transition: all .8s;
 }
 .paper .stage {
   width: 100%;
@@ -69,6 +71,7 @@ export default {
 }
 .paper-center {
   -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
   z-index: 999;
 }
 .stage-box {
@@ -78,20 +81,28 @@ export default {
   height: 100%;
   -webkit-transform-style: preserve-3d;
   -webkit-transition: all .6s;
+  -moz-transform-style: preserve-3d;
+  -moz-transition: all .6s;
+
 }
 .stage-box .paper-front {
   -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
 }
 .stage-box .paper-back {
   -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
 }
 .stage-box .stage {
   -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
 }
 .stage-front .stage-box {
   -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
 }
 .stage-back .stage-box {
   -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
 }
 </style>

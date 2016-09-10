@@ -1,7 +1,7 @@
 <template lang="html">
   <nav class="top-nav z-depth-3">
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo center">www.hao2home.com</a>
+      <a href="#!" class="brand-logo center">my-vue-demo</a>
       <ul class="left hide-on-med-and-down">
         <li v-for="item in menu"
           v-bind:class="{'active': item.active}"

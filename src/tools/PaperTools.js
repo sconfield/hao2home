@@ -22,6 +22,7 @@ export function putCurrentPaperCenter(paper, paperList, wall){
 export function putAnyWhere(paper, wall, idx){
 
   paper.putWhere['-webkit-transform'] = 'rotate(' + Math.random()*360 + 'deg)';
+  paper.putWhere['-moz-transform'] = 'rotate(' + Math.random()*360 + 'deg)';
 
   var _half_x = wall.width / 2;
   var _half_y = wall.height / 2;
@@ -56,6 +57,8 @@ export function getCenterAddr(wall){
   return {
     top: wall.height/2-200+'px',
     left: wall.width/2-130+'px',
-    '-webkit-transform': 'rotate(0deg)'
+    '-webkit-transform': 'rotate(0deg)',
+    '-moz-transform': 'rotate(0deg)'
+
   };
 }
