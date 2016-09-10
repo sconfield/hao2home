@@ -42,17 +42,21 @@ export default {
   border-radius: 50%;
   -webkit-transform: scale(.52);
   -moz-transform: scale(.52);
+  -ms-transform: scale(.52);
 }
 .nav-bar span:hover {
   -webkit-transform: scale(.88);
   -webkit-transition: all .5s;
   -moz-transform: scale(.88);
   -moz-transition: all .5s;
+  -ms-transform: scale(.88);
+  -ms-transition: all .5s;
   background-color: #64b5f6;
 }
 .nav-bar .current {
   background-color: #42a5f5;
   -webkit-transform: scale(.99);
   -moz-transform: scale(.99);
+  -ms-transform: scale(.99);
 }
 </style>

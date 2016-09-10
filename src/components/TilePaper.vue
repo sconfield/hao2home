@@ -59,6 +59,8 @@ export default {
   -webkit-transition: all .8s;
   -moz-perspective: 800px;
   -moz-transition: all .8s;
+  -ms-perspective: 800px;
+  -ms-transition: all .8s;
 }
 .paper .stage {
   width: 100%;
@@ -72,6 +74,7 @@ export default {
 .paper-center {
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
   z-index: 999;
 }
 .stage-box {
@@ -83,26 +86,32 @@ export default {
   -webkit-transition: all .6s;
   -moz-transform-style: preserve-3d;
   -moz-transition: all .6s;
-
+  -ms-transform-style: preserve-3d;
+  -ms-transition: all .6s;
 }
 .stage-box .paper-front {
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
 }
 .stage-box .paper-back {
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
 }
 .stage-box .stage {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
 }
 .stage-front .stage-box {
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
 }
 .stage-back .stage-box {
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
 }
 </style>
