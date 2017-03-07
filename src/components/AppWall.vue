@@ -25,7 +25,7 @@ import {putCurrentPaperCenter} from '../tools/PaperTools'
 export default {
   data: function(){
     return {
-      tileList: tileData.slice(0, 6),
+      tileList: tileData,
       tileName: ''
     };
   },
